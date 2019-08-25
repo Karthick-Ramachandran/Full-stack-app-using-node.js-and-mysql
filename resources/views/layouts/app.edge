@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ style('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css') }}
+    {{ style('http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css') }}
+
+    <title>NodeBlog</title>
+</head>
+<body>
+    @include('layouts.navbar')
+    @!section('content')
+    {{ script('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}
+    {{ script('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js') }}
+    {{ script('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js') }}
+    {{ script('http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js') }}
+    <script>
+    $(document).ready(function() {
+      $('#summernote').summernote({
+            shortcuts: false,
+            popover: {
+             image: [],
+             link: [],
+             air: []
+            }
+      });
+    
+
+    });
+    </script>
+</body>
+</html>

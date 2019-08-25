@@ -1,0 +1,36 @@
+@layout('layouts.app')
+
+@section('content')
+  <div class="container mt-4">
+      <h5 class="text-center mb-3">Create your story to share it to the world</h5>
+      <div class="row justify-content-center">
+          <div class="col-lg-6 col-xl-6 col-sm-12 col-xs-12 col-md-10">
+              <div class="card bg-white text-black">
+                  <div class="card-body">
+                      <form action="{{ route('createstory') }}" enctype="multipart/form-data" method="POST">
+                          {{ csrfField() }}
+                          <div class="form-group">
+                              <label for="">Title</label>
+                              <input type="text" name="title" placeholder="What's title of your story?" class="form-control">
+                          </div>
+                          <div class="form-group">
+                <label >Content</label>
+                 <textarea class="form-control" id="summernote" name="content"  placeholder="What's on your Mind?" ></textarea>
+        
+                     </div>
+                     <div class="form-group">
+                         
+                         <input type="file" name="image" placeholder="Your story's cover photo" class="form-control-file">
+                     </div>
+                          <div class="row justify-content-center">
+                              <input type="submit" value="Submit" class="btn btn-success">
+                          </div>
+
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+@endsection

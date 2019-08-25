@@ -1,0 +1,23 @@
+@layout('layouts.app')
+
+
+@section('content')
+
+<div class="container">
+    <div class="row justify content-center mt-5">
+        @each(story in stories)
+          <div class="col-lg-4 col-xl-4 col-sm-12 col-md-6 col-xs-12 mb-5">
+              <div class="card bg-white">
+                  <img src="{{ story.image }}" alt="{{ story.title }}" height="150" >
+                  <div class="card-title text-center mt-2" ><b>{{ story.title }}</b></div>
+                  @if(auth.user.id === story.user_id)
+                    <a href="{{ route('editview', {'id' : story.id}) }}" class="btn btn-success mb-1">Edit</a>
+                  @endif 
+                  <a href="{{ route('read', {'id' : story.id}) }}" class="btn btn-primary">Read the story</a>                 
+              </div>
+          </div>
+        @endeach
+    </div>
+</div>
+  
+@endsection

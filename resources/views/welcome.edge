@@ -1,0 +1,39 @@
+@layout('layouts.app')
+
+@section('content')
+<div class="container">
+  @if(flashMessage('failed'))
+    <div class="alert alert-danger">{{ flashMessage('failed') }}</div>
+  @endif
+   @if(flashMessage('success'))
+    <div class="alert alert-success mt-3">
+      {{ flashMessage('success') }}
+    </div>
+  @endif
+   @if(getErrorFor())
+    <div class="alert alert-danger mt-3">
+        {{ getErrorFor() }}
+     </div>
+  @endif
+  <div class="jumbotron mt-4">
+  <h5 class="text-center">Welcome to NodeBlog</h5>
+  @if(auth.user)
+<p class="text-center"><b>{{ auth.user.username }}, welcome back!. Please share your thoughts</b></p>  
+  @else  
+    <p class="text-center"><b>Place to share your thoughts with lovable people like you!</b> </p>
+
+  @endif
+  </div>
+  @if(auth.user)
+     <div class="d-flex justify-content-center">
+        <a href="/create/story" class="btn btn-primary">{{ auth.user.username }}, Create your new story</a>
+       </div>
+  @else
+    <div class="d-flex justify-content-center">
+        <a href="/stories" class="btn btn-primary">Click to Explore</a>
+       </div> 
+  @endif
+      
+  </div>
+
+@endsection

@@ -1,0 +1,10 @@
+@layout('layouts.app')
+
+@section('content')
+  <div class="container mt-4">
+      @each(stories in story)
+        <a style="display:block" href="{{ route('read', {'id': stories.id}) }}">{{ stories.title }}</a>
+      @endeach
+  </div>
+  
+@endsection

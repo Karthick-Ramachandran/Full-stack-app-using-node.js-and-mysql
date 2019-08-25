@@ -1,0 +1,15 @@
+@layout('layouts.app')
+
+@section('content')
+
+@each(stories in story)
+<div class="card container">
+  <div class="text-center">
+      {{ stories.title }}
+      <a href="{{ route('storydelete', {'id': stories.id}) }}" class="btn btn-danger">Delete</a>
+  </div>
+</div>
+
+@endeach
+  
+@endsection
